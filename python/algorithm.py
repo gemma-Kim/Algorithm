@@ -14,6 +14,7 @@ def solution(scoville, K):
         count += 1
     return count
 
+
 # 2. 프로그래머스: 구명보트(LV.2)
 # https://programmers.co.kr/learn/courses/30/lessons/42885
 
