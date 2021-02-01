@@ -31,3 +31,19 @@ def solution(people, limit):
         else:
             max_idx -= 1
     return boat
+
+
+# 3. 프로그래머스: 영어 끝말잇기(LV.2)
+# https://programmers.co.kr/learn/courses/30/lessons/12981
+
+def solution(n, words):
+    ws = []
+    result = []
+    for i in range(len(words)-1):
+        ws.append(words[i])
+        if words[i+1] in ws or words[i][-1] != words[i+1][0]:
+            result = [(i+1)%n + 1,(i+1)//n + 1]
+            break
+    if result:
+        return result
+    return [0,0]
