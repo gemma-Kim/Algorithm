@@ -47,3 +47,27 @@ def solution(n, words):
     if result:
         return result
     return [0,0]
+
+
+# 4. 프로그래머스: 기능개발(LV.2)
+# https://programmers.co.kr/learn/courses/30/lessons/42586 
+
+import math
+
+def solution(progresses, speeds):
+    lefted = [math.ceil((100 - progresses[i])/speeds[i]) for i in range(len(progresses))]
+    result = []
+    count = 1
+    min_idx = 0
+    max_idx = 1
+    while max_idx < len(speeds):
+        if lefted[min_idx] >= lefted[max_idx]:
+            count += 1
+            max_idx += 1
+        else:
+            result.append(count)
+            count = 1
+            min_idx = max_idx
+            max_idx += 1
+    result.append(count)
+    return result
