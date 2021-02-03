@@ -71,3 +71,25 @@ def solution(progresses, speeds):
             max_idx += 1
     result.append(count)
     return result
+
+
+# 5. 프로그래머스: 크레인 인형 뽑기
+# https://programmers.co.kr/learn/courses/30/lessons/64061
+
+def solution(board, moves):
+    container = []
+    count = 0
+    for m in moves:
+        for i in range(len(board)):
+            e = board[i][m-1]
+            if e:
+                if not container or (container and container[-1] != e):
+                    container.append(e)
+                    board[i][m-1] = 0
+                    break
+                if container and container[-1] == e:
+                    count += 2
+                    container.pop(-1)
+                    board[i][m-1] = 0
+                    break
+    return count
