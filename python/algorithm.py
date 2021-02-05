@@ -93,3 +93,14 @@ def solution(board, moves):
                     board[i][m-1] = 0
                     break
     return count
+
+
+# 6. 프로그래머스: 3진법 뒤집기
+# https://programmers.co.kr/learn/courses/30/lessons/68935
+
+def solution(n):
+    ternary = ''
+    while n:
+        ternary += str(n % 3)
+        n = n // 3
+    return int(ternary, 3)
