@@ -104,3 +104,12 @@ def solution(n):
         ternary += str(n % 3)
         n = n // 3
     return int(ternary, 3)
+
+# 7. 프로그래머스: 자릿수 구하기
+# https://programmers.co.kr/learn/courses/30/lessons/12931
+
+def solution(n):
+    result = 0
+    for w in list(str(n)):
+        result += int(w)
+    return result
