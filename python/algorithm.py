@@ -105,6 +105,7 @@ def solution(n):
         n = n // 3
     return int(ternary, 3)
 
+
 # 7. 프로그래머스: 자릿수 구하기
 # https://programmers.co.kr/learn/courses/30/lessons/12931
 
@@ -113,3 +114,38 @@ def solution(n):
     for w in list(str(n)):
         result += int(w)
     return result
+
+
+# 8. 프로그래머스: 올바른 괄호
+# https://programmers.co.kr/learn/courses/30/lessons/12909
+
+def solution(s):
+    brackes = s
+    result = []
+    for bracket in brackes:
+        if result:
+            if result[-1] == '(' and bracket == ')':
+                result.pop()
+            else:
+                result.append(bracket)
+        else:
+            result.append(bracket)
+    if not result:
+        return True
+    return False
+
+
+# 9. 프로그래머스: 실패율
+# https://programmers.co.kr/learn/courses/30/lessons/42889
+
+def solution(N, stages):
+    length = len(stages)
+    result = {}
+    for n in range(1, N + 1):
+        if n in stages:
+            ct = stages.count(n)
+            result[n] = ct / length
+            length -= ct
+        else:
+            result[n] = 0
+    return [r[0] for r in sorted(result.items(), key = lambda item: item[1], reverse=True)]
