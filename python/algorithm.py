@@ -149,3 +149,20 @@ def solution(N, stages):
         else:
             result[n] = 0
     return [r[0] for r in sorted(result.items(), key = lambda item: item[1], reverse=True)]
+
+
+# 10. 프로그래머스: 주식가격
+# https://programmers.co.kr/learn/courses/30/lessons/42584
+
+def solution(prices):
+    time = []
+    idx = 0
+    while idx < len(prices):
+        second = 0
+        for i in range(idx, len(prices) - 1):
+            second += 1
+            if prices[i + 1] < prices[idx]:
+                break
+        idx += 1
+        time.append(second)
+    return time
